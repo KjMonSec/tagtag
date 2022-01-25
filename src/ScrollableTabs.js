@@ -11,7 +11,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-//import Tags from './MultipleValues.js'
 import UploadButtons from './Uploadbutton.js'
 import IconLabelButtons from './Deletebutton.js'
 import MultipleValueTextInput from 'react-multivalue-text-input';
@@ -105,6 +104,7 @@ export default function ScrollableTabsButtonForce() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Related Images:
+                
 
             </TabPanel>
             <TabPanel value={value} index={3}>

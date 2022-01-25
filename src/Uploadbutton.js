@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadButtons() {
+export default function UploadButton() {
   const classes = useStyles();
 
   return (
