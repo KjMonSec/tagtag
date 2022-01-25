@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import Tags from './MultipleValues.js'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -85,6 +86,7 @@ export default function ScrollableTabsButtonForce() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Search Image:
+                <Tags />
             </TabPanel>
             <TabPanel value={value} index={2}>
                 related Images:
