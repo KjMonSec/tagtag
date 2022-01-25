@@ -11,9 +11,12 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import Tags from './MultipleValues.js'
+//import Tags from './MultipleValues.js'
 import UploadButtons from './Uploadbutton.js'
 import IconLabelButtons from './Deletebutton.js'
+import MultipleValueTextInput from 'react-multivalue-text-input';
+import TextField from '@material-ui/core/TextField'
+import SubmitButtons from './SubmitButton.js'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -88,17 +91,42 @@ export default function ScrollableTabsButtonForce() {
                 <UploadButtons />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Search Image:
-                <Tags />
+                <MultipleValueTextInput
+                    onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
+                    onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
+                    label="Use the search bar to search images using tags and press SUBMIT to confirm"
+                    name="item-input"
+                    placeholder="Search tags separated by comma or the ENTER button."
+                    values={["default value", "another default value"]}
+                />
+
+                <SubmitButtons />
+
             </TabPanel>
             <TabPanel value={value} index={2}>
-                related Images:
+                Related Images:
+
             </TabPanel>
             <TabPanel value={value} index={3}>
                 Select tags to be removed:
+
+                <MultipleValueTextInput
+                    onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
+                    onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
+                    label="Search image using tags"
+                    name="item-input"
+                    placeholder="Search tags separated by comma or the ENTER button."
+                    values={["default value", "another default value"]}
+                /> 
+
+
+                Enter the URL of the tags you want to remove: <TextField />  
+                <SubmitButtons />
             </TabPanel>
             <TabPanel value={value} index={4}>
-                Select image to be delted:
+
+                Please enter URL of the image you want to delete and then press the DELETE button to confirm:
+                <TextField />
                 <IconLabelButtons />
             </TabPanel>
         </div>
