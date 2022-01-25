@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-//import './App.css';
-import VerticalTabs from './VerticalTabs.js'
 import ScrollableTabsButtonForce from './ScrollableTabs'
 
 
