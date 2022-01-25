@@ -12,6 +12,8 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Tags from './MultipleValues.js'
+import UploadButtons from './Uploadbutton.js'
+import IconLabelButtons from './Deletebutton.js'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -83,6 +85,7 @@ export default function ScrollableTabsButtonForce() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 Select an image to upload:
+                <UploadButtons />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Search Image:
@@ -96,6 +99,7 @@ export default function ScrollableTabsButtonForce() {
             </TabPanel>
             <TabPanel value={value} index={4}>
                 Select image to be delted:
+                <IconLabelButtons />
             </TabPanel>
         </div>
     );
