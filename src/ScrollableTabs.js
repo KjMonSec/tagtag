@@ -11,7 +11,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import UploadButtons from './Uploadbutton.js'
 import MultipleValueTextInput from 'react-multivalue-text-input';
 import TextField from '@material-ui/core/TextField'
 import { Button } from '@material-ui/core';
@@ -19,7 +18,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Autocomplete } from '@material-ui/lab';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -79,9 +78,9 @@ const useStyles = makeStyles((theme) => ({
     title: {
         //flexGrow: 1,
         float: 'right',
-        margin:'auto',
-        marginRight:0,
-      },
+        margin: 'auto',
+        marginRight: 0,
+    },
 }));
 
 export default function ScrollableTabsButtonForce() {
@@ -111,14 +110,27 @@ export default function ScrollableTabsButtonForce() {
                         <Tab label="Remove Tags" icon={<BackspaceIcon />} {...a11yProps(3)} />
                         <Tab label="Delete Image" icon={<DeleteForeverIcon />} {...a11yProps(4)} />
                     </Tabs>
-                    <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}> Logout 
+                    <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}> Logout
                         <ExitToAppIcon />
                     </IconButton>
                 </Toolbar>
             </AppBar>
             <div className={classes.panel}>
                 <TabPanel value={value} index={0}>
-                    <UploadButtons />
+                    <form className={classes.form}>
+                        <input type='file' id='imageUpload' style={{ display: 'None' }} />
+                        <Button
+                            onClick={()=>{
+                                document.getElementById('imageUpload').click()
+                            }}
+                            variant="contained"
+                            fullWidth color="primary"
+                            component="span"
+                            startIcon={<PhotoCamera />}>
+                            Upload
+                        </Button>
+                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
+                    </form>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <form className={classes.form}>
@@ -133,14 +145,24 @@ export default function ScrollableTabsButtonForce() {
                             />
                         </div>
                         <input id='search-tags' type='hidden' />
-
                         <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
                     </form>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <UploadButtons />
-
-
+                    <form className={classes.form}>
+                    <input type='file' id='imageUpload' style={{ display: 'None' }} />
+                        <Button
+                            onClick={()=>{
+                                document.getElementById('imageUpload').click()
+                            }}
+                            variant="contained"
+                            fullWidth color="primary"
+                            component="span"
+                            startIcon={<PhotoCamera />}>
+                            Upload
+                        </Button>
+                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
+                    </form>
                 </TabPanel>
                 <TabPanel value={value} index={3}>
                     <form className={classes.form}>
