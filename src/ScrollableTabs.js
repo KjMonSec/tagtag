@@ -111,7 +111,7 @@ export default function ScrollableTabsButtonForce() {
                         <Tab label="Remove Tags" icon={<BackspaceIcon />} {...a11yProps(3)} />
                         <Tab label="Delete Image" icon={<DeleteForeverIcon />} {...a11yProps(4)} />
                     </Tabs>
-                    <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}>
+                    <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}> Logout 
                         <ExitToAppIcon />
                     </IconButton>
                 </Toolbar>
