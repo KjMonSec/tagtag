@@ -13,5 +13,16 @@ code {
 }
 
 .beautiful-input{
-  border: 1px solid gray
+  border: 1px solid gray;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.beautiful-input input{
+  padding: 18.5px 14px;
+  border: 0;
+}
+
+.beautiful-input .multiple-value-text-input{
+  width: 100%;
 }
