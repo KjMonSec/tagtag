@@ -1,50 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import BackspaceIcon from '@material-ui/icons/Backspace';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import MultipleValueTextInput from 'react-multivalue-text-input';
-import TextField from '@material-ui/core/TextField'
-import { Button } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import RemoveTagsView from './views/RemoveTagsView';
+import DeleteImageView from './views/DeleteImageView';
+import UploadImageView from './views/UploadImageView';
+import RelatedImagesView from './views/RelatedImagesView';
+import SearchImageView from './views/SearchImageView';
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`scrollable-force-tabpanel-${index}`}
-            aria-labelledby={`scrollable-force-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
-
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
-};
 
 function a11yProps(index) {
     return {
@@ -63,11 +35,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '20cm',
         margin: 'auto',
         marginTop: '30vh',
-    },
-    form: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
     },
     toolbar: {
         minHeight: 128,
@@ -116,86 +83,11 @@ export default function ScrollableTabsButtonForce() {
                 </Toolbar>
             </AppBar>
             <div className={classes.panel}>
-                <TabPanel value={value} index={0}>
-                    <form className={classes.form}>
-                        <input type='file' id='imageUpload' style={{ display: 'None' }} />
-                        <Button
-                            onClick={()=>{
-                                document.getElementById('imageUpload').click()
-                            }}
-                            variant="contained"
-                            fullWidth color="primary"
-                            component="span"
-                            startIcon={<PhotoCamera />}>
-                            Upload
-                        </Button>
-                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
-                    </form>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <form className={classes.form}>
-                        <div className="beautiful-input MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
-                            <MultipleValueTextInput
-                                onItemAdded={(item, allItems) => document.getElementById('search-tags').value = allItems.join()}
-                                onItemDeleted={(item, allItems) => document.getElementById('search-tags').value = allItems.join()}
-                                //label="Use the search bar to search images using tags and press SUBMIT to confirm"
-                                name="item-input"
-                                className='MuiInputBase-input MuiOutlinedInput-input'
-                                placeholder="Search tags"
-                            />
-                        </div>
-                        <input id='search-tags' type='hidden' />
-                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
-                    </form>
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    <form className={classes.form}>
-                    <input type='file' id='imageUpload' style={{ display: 'None' }} />
-                        <Button
-                            onClick={()=>{
-                                document.getElementById('imageUpload').click()
-                            }}
-                            variant="contained"
-                            fullWidth color="primary"
-                            component="span"
-                            startIcon={<PhotoCamera />}>
-                            Upload
-                        </Button>
-                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
-                    </form>
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                    <form className={classes.form}>
-                        <div className="beautiful-input MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
-                            <MultipleValueTextInput
-                                onItemAdded={(item, allItems) => document.getElementById('tags-to-be-removed').value = allItems.join()}
-                                onItemDeleted={(item, allItems) => document.getElementById('tags-to-be-removed').value = allItems.join()}
-                                //label="Tags to be removed:"
-                                name="item-input"
-                                className='MuiInputBase-input MuiOutlinedInput-input'
-                                placeholder="Enter tags"
-                            />
-                        </div>
-                        <input type='hidden' id='tags-to-be-removed' />
-                        <TextField fullWidth variant='outlined' label='Image URL' />
-                        <Button variant='contained' fullWidth color='primary'>SUBMIT</Button>
-                    </form>
-                </TabPanel>
-                <TabPanel value={value} index={4}>
-
-                    <form className={classes.form}>
-                        <TextField fullWidth variant='outlined' label='Image URL' />
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            fullWidth
-                            startIcon={<DeleteIcon />}
-                        >
-                            Delete
-                        </Button>
-
-                    </form>
-                </TabPanel>
+                <UploadImageView value={value}  />
+                <SearchImageView value={value} />
+                <RelatedImagesView value={value} />
+                <RemoveTagsView value={value} />
+                <DeleteImageView value={value} />
             </div>
         </div>
     );
