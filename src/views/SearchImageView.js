@@ -29,7 +29,7 @@ export default function SearchImageView(props) {
         var tags = document.getElementById("search-tags").value.split(',');
 
         // send the request to the server with the tags and get the response
-        var api = 'https://13odoj44e4.execute-api.us-east-1.amazonaws.com/v1/tags';
+        var api = 'https://7irg6umdrf.execute-api.us-east-1.amazonaws.com/v1/tags';
         var res = await fetch(api, {
             method: 'POST',
             headers: {
@@ -53,7 +53,7 @@ export default function SearchImageView(props) {
             <form className={classes.form}>
                 <div className="beautiful-input MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl">
                     <MultipleValueTextInput
-                        onItemAdded={(item, allItems) => document.getElementById('search-tags').value = allItems.join()}
+                        onItemAdded={(item, allItems) => (document.getElementById('search-tags').value) = (allItems.join())}
                         onItemDeleted={(item, allItems) => document.getElementById('search-tags').value = allItems.join()}
                         //label="Use the search bar to search images using tags and press SUBMIT to confirm"
                         name="item-input"
