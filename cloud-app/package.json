@@ -1,0 +1,72 @@
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "name": "cloud-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.3.1",
+    "@mui/styled-engine": "^5.3.0",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "aws-amplify": "^4.3.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-multivalue-text-input": "^1.0.0",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+=======
+=======
+>>>>>>> 3b4f83b561b195562a6700d1d3f2465442e766b1
+  "name": "tagtag",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-multivalue-text-input": "^1.0.0",
+    "react-scripts": "5.0.0",
+    "react-tinder-card": "^1.4.5",
+<<<<<<< HEAD
+>>>>>>> 3b4f83b561b195562a6700d1d3f2465442e766b1
+=======
+>>>>>>> 3b4f83b561b195562a6700d1d3f2465442e766b1
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
