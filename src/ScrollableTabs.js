@@ -20,6 +20,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import LogInView from './views/LogInView';
 import SignUpView from './views/SignUpView';
+import getCookie from './components/getCookie';
 
 function a11yProps(index) {
     return {
@@ -54,8 +55,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScrollableTabsButtonForce() {
+    const [loggedin, setLoggedin] = React.useState(getCookie('accessToken') !== '');
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const defaultTab = loggedin ? 0 : 5;
+    const [value, setValue] = React.useState(defaultTab);
+    
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -74,15 +78,20 @@ export default function ScrollableTabsButtonForce() {
                         textColor="primary"
                         aria-label="scrollable force tabs example"
                     >
-                        <Tab label="Upload Image" icon={<CloudUploadIcon />} {...a11yProps(0)} />
-                        <Tab label="Search Images" icon={<SearchIcon />} {...a11yProps(1)} />
-                        <Tab label="Related Images" icon={<AccountTreeIcon />} {...a11yProps(2)} />
-                        <Tab label="Remove Tags" icon={<BackspaceIcon />} {...a11yProps(3)} />
-                        <Tab label="Delete Image" icon={<DeleteForeverIcon />} {...a11yProps(4)} />
-                        <Tab label="SignUp" icon={<PersonAddIcon />} {...a11yProps(5)} />
-                        <Tab label="LogIn" icon={<LockOpenIcon />} {...a11yProps(6)} />
+                        <Tab style={{display: 'none'}} label="Upload Image" icon={<CloudUploadIcon />} {...a11yProps(0)} />
+                        <Tab style={{display: loggedin ? 'block' : 'none'}} label="Search Images" icon={<SearchIcon />} {...a11yProps(1)} />
+                        <Tab style={{display: loggedin ? 'block' : 'none'}} label="Related Images" icon={<AccountTreeIcon />} {...a11yProps(2)} />
+                        <Tab style={{display: loggedin ? 'block' : 'none'}} label="Remove Tags" icon={<BackspaceIcon />} {...a11yProps(3)} />
+                        <Tab style={{display: loggedin ? 'block' : 'none'}} label="Delete Image" icon={<DeleteForeverIcon />} {...a11yProps(4)} />
+                        <Tab style={{display: loggedin ? 'none' : 'block'}} label="SignUp" icon={<PersonAddIcon />} {...a11yProps(5)} />
+                        <Tab style={{display: loggedin ? 'none' : 'block'}} label="LogIn" icon={<LockOpenIcon />} {...a11yProps(6)} />
                     </Tabs>
-                    <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}> Logout
+                    <IconButton 
+                        style={{display: loggedin? 'block' : 'none' }}
+                        aria-label="SignOut" 
+                        edge="end" 
+                        color="inherit" 
+                        className={classes.title}> Logout
                         <ExitToAppIcon />
                     </IconButton>
                 </Toolbar>
