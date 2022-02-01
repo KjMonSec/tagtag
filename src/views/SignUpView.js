@@ -11,6 +11,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import EmailIcon from '@material-ui/icons/Email';
 import clsx from 'clsx';
+import signup from '../components/auth/signup';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
         },
     }
 }));
-
-
 
 export default function SignUpView(props) {
     const classes = useStyles();
@@ -43,6 +42,14 @@ export default function SignUpView(props) {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+    const handleSignUp = async () => {
+        var email = document.getElementById("standard-adornment-email").value;
+        var password = document.getElementById("standard-adornment-password").value;
+        var accessToken = await signup(email, password)
+        console.log("AccessToken: ", accessToken);
+    };
+
     return (
         <TabPanel value={props.value} index={5}>
 
@@ -105,6 +112,7 @@ export default function SignUpView(props) {
                     variant="contained"
                     color="primary"
                     fullWidth
+                    onClick={handleSignUp}
                 >
                     SignUp
                 </Button>

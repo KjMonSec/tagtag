@@ -1,6 +1,6 @@
-
+import Amplify, {Auth} from 'aws-amplify';
 /**
- * A function that connects with aws cognito to loggin and returns 
+ * A function that connects with aws cognito to signup and returns 
  * a promise that resolves into a session access token
  * @param {string} email 
  * @param {string} password 

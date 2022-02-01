@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import EmailIcon from '@material-ui/icons/Email';
+import login from '../components/auth/login';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,14 @@ export default function LogInView(props) {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+    
+    const handleLogIn = async () => {
+        var email = document.getElementById("standard-adornment-email").value;
+        var password = document.getElementById("standard-adornment-password").value;
+        var accessToken = await login(email, password)
+        console.log("AccessToken: ", accessToken);
+    };
+
     return (
         <TabPanel value={props.value} index={6}>
 
@@ -84,6 +93,7 @@ export default function LogInView(props) {
                     variant="contained"
                     color="primary"
                     fullWidth
+                    onClick={handleLogIn}
                 >
                     LogIn
                 </Button>
