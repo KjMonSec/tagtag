@@ -1,7 +1,7 @@
 import Amplify from "aws-amplify";
 import config from "./config";
 
-function init() {
+export default function init() {
   Amplify.configure({
     Auth: {
       mandatorySignId: true,
