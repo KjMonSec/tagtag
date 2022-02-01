@@ -9,6 +9,16 @@ import Amplify, {Auth} from 'aws-amplify';
  * success and false on failure
  */
 export default async function login(email, password) {
-    // Add your code here
+    
+    try{
+      const user= await Auth.signIn(email,password);
+      console.log("New Login"+user);
+    }
+
+    catch(error) {
+      let err = error.message ? error : { "message" : error };
+      alert("Error Try Again : "+err);
+
+    }
 
 }
