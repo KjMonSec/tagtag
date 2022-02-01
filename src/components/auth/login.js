@@ -1,5 +1,4 @@
 import Amplify, {Auth} from 'aws-amplify';
-import { Button } from '@material-ui/core';
 
 /**
  * A function that connects with aws cognito to loggin and returns 
