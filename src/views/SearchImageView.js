@@ -5,6 +5,9 @@ import { Button } from '@material-ui/core';
 import MultipleValueTextInput from 'react-multivalue-text-input';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         height: 450,
         paddingLeft: 10
+    },
+    icon: {
+        color: 'rgba(255, 255, 255, 0.54)',
     },
 }));
 
@@ -65,10 +71,24 @@ export default function SearchImageView(props) {
                 <Button variant='contained' fullWidth color='primary' onClick={handleSubmit}>SUBMIT</Button>
                 <br />
                 <br />
+                {/* {
+                    imageList.map(url=>(
+                        <p><a href={url} target='_blank'> {url} </a></p>
+                    ))
+                } */}
                 <ImageList rowHeight={180} className={classes.imageList}>
                     {imageList.map(image => (
                         <ImageListItem key={image}>
                             <img src={image} alt={image} />
+                            <ImageListItemBar
+                                title={image}
+                                subtitle={<span>code: {image.split('=')[1]}</span>}
+                                actionIcon={
+                                    <IconButton aria-label={`info about ${image.split('=')[1]}`} className={classes.icon}>
+                                        <InfoIcon />
+                                    </IconButton>
+                                }
+                            />
                         </ImageListItem>
                     ))}
                 </ImageList>
