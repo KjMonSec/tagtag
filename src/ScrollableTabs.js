@@ -16,7 +16,10 @@ import DeleteImageView from './views/DeleteImageView';
 import UploadImageView from './views/UploadImageView';
 import RelatedImagesView from './views/RelatedImagesView';
 import SearchImageView from './views/SearchImageView';
-
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import LogInView from './views/LogInView';
+import SignUpView from './views/SignUpView';
 
 function a11yProps(index) {
     return {
@@ -76,6 +79,8 @@ export default function ScrollableTabsButtonForce() {
                         <Tab label="Related Images" icon={<AccountTreeIcon />} {...a11yProps(2)} />
                         <Tab label="Remove Tags" icon={<BackspaceIcon />} {...a11yProps(3)} />
                         <Tab label="Delete Image" icon={<DeleteForeverIcon />} {...a11yProps(4)} />
+                        <Tab label="SignUp" icon={<PersonAddIcon />} {...a11yProps(5)} />
+                        <Tab label="LogIn" icon={<LockOpenIcon />} {...a11yProps(6)} />
                     </Tabs>
                     <IconButton aria-label="SignOut" edge="end" color="inherit" className={classes.title}> Logout
                         <ExitToAppIcon />
@@ -88,6 +93,8 @@ export default function ScrollableTabsButtonForce() {
                 <RelatedImagesView value={value} />
                 <RemoveTagsView value={value} />
                 <DeleteImageView value={value} />
+                <LogInView value={value} />
+                <SignUpView value={value} />
             </div>
         </div>
     );
